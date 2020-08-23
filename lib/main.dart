@@ -34,13 +34,22 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Welcome to ...'),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.red[300],
       ),
       //backgroundColor: Colors.red[300],
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[EmailText(), PasswordText()],
+        children: <Widget>[
+          Icon(
+            Icons.star,
+            size: 100.0,
+            color: Colors.red[300],
+          ),
+          EmailText(),
+          PasswordText(),
+          LoginAndCreatAccountButtons()
+        ],
       ),
     );
   }
@@ -94,5 +103,33 @@ class _PasswordTextState extends State<PasswordText> {
         ),
       ),
     ));
+  }
+}
+
+class LoginAndCreatAccountButtons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        padding: EdgeInsets.only(top: 10.0),
+        width: 230.0,
+        child: Row(
+          children: <Container>[
+            Container(
+                child: RaisedButton(
+              child: Text("Create Account"),
+              onPressed: () => null,
+            )),
+            Container(
+              child: RaisedButton(
+                onPressed: () => null,
+                child: Text("Login"),
+              ),
+              padding: EdgeInsets.only(left: 10.0),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
