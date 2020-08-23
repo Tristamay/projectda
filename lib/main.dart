@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ProjectDA',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: null,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomePage(),
@@ -34,12 +34,13 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Welcome to ...'),
         centerTitle: true,
+        backgroundColor: Colors.red,
       ),
-      backgroundColor: Colors.red[300],
+      //backgroundColor: Colors.red[300],
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[EmailText()],
+        children: <Widget>[EmailText(), PasswordText()],
       ),
     );
   }
@@ -58,11 +59,39 @@ class _EmailTextState extends State<EmailText> {
     return Center(
         child: Container(
       width: 250.0,
-      color: Colors.orange[200],
       child: TextField(
         controller: this.controller,
         decoration: InputDecoration(
-            prefixIcon: Icon(Icons.message), labelText: "Enter your email"),
+          prefixIcon: Icon(Icons.message),
+          labelText: "Email",
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(25.0)),
+        ),
+      ),
+    ));
+  }
+}
+
+class PasswordText extends StatefulWidget {
+  @override
+  _PasswordTextState createState() => _PasswordTextState();
+}
+
+class _PasswordTextState extends State<PasswordText> {
+  final controller = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Container(
+      padding: EdgeInsets.only(top: 10.0),
+      width: 250.0,
+      child: TextField(
+        controller: this.controller,
+        decoration: InputDecoration(
+          prefixIcon: Icon(Icons.message),
+          labelText: "Password",
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(25.0)),
+        ),
       ),
     ));
   }
