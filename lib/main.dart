@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[],
+        children: <Widget>[EmailText()],
       ),
     );
   }
@@ -51,8 +51,19 @@ class EmailText extends StatefulWidget {
 }
 
 class _EmailTextState extends State<EmailText> {
+  final controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+        child: Container(
+      width: 250.0,
+      color: Colors.orange[200],
+      child: TextField(
+        controller: this.controller,
+        decoration: InputDecoration(
+            prefixIcon: Icon(Icons.message), labelText: "Enter your email"),
+      ),
+    ));
   }
 }
