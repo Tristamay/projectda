@@ -21,7 +21,12 @@ class MyApp extends StatelessWidget {
 
 // The Homepage
 // Should ask the user to create an account or login
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +36,23 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
       ),
       backgroundColor: Colors.red[300],
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[],
+      ),
     );
+  }
+}
+
+class EmailText extends StatefulWidget {
+  @override
+  _EmailTextState createState() => _EmailTextState();
+}
+
+class _EmailTextState extends State<EmailText> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
